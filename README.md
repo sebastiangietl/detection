@@ -1,12 +1,20 @@
 # detection
 
 Detection and parameter estimation of weak targets in radar signals and infrared image sequences.
+Core question: how much detection performance is lost the less is known about the target?
+
+## Result
+
+![P_D vs SNR](figures/pd_curve.png)
+
+Probability of detection vs. SNR for the matched-filter detector with unknown target delay,
+one decision per receive window, false-alarm probability fixed at 0.01.
 
 ## Status
 
 ### Radar signals
 - [x] Signal model: unit-energy linear chirp, single-pulse receive window with complex white Gaussian noise
-- [ ] Matched filter / pulse compression, verified against theory
+- [x] Matched filter / pulse compression
 - [ ] CFAR detection
 - [ ] Kalman tracking of the target delay
 - [ ] Direction-of-arrival estimation on a simulated array
@@ -23,5 +31,8 @@ Detection and parameter estimation of weak targets in radar signals and infrared
 
 ## Run
 
-    pip install numpy matplotlib
-    python chirp.py
+```
+pip install numpy matplotlib
+python chirp.py       # plots two simulated receive windows
+python hit_rate.py    # P_D curve -> figures/pd_curve.png
+```
