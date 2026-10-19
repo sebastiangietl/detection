@@ -17,7 +17,7 @@ one decision per receive window, false-alarm probability fixed at 0.01.
 - [x] Matched filter / pulse compression
 - [ ] CFAR detection
 - [ ] Kalman tracking of the target delay
-- [ ] Direction-of-arrival estimation on a simulated array
+<!-- - [ ] Direction-of-arrival estimation on a simulated array -->
 
 ### Infrared image sequences
 - [ ] Synthetic sequences: small moving target in Gaussian background, known ground truth
