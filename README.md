@@ -1,6 +1,6 @@
 # detection
 
-Detection and parameter estimation of weak targets in radar signals and infrared image sequences.
+Detection and parameter estimation of weak targets in radar and RF signals as well as infrared image sequences.
 Core question: how much detection performance is lost the less is known about the target?
 
 ## Result
@@ -17,7 +17,8 @@ one decision per receive window, false-alarm probability fixed at 0.01.
 - [x] Matched filter / pulse compression
 - [ ] CFAR detection
 - [ ] Kalman tracking of the target delay
-- [ ] Direction-of-arrival estimation on a simulated array 
+- [ ] Direction-of-arrival estimation on a simulated array
+- [ ] Blind detection without known waveform 
 
 ### Infrared image sequences
 - [ ] Synthetic sequences: small moving target in Gaussian background, known ground truth
@@ -25,9 +26,6 @@ one decision per receive window, false-alarm probability fixed at 0.01.
 - [ ] 2D matched filter for small targets, verified on synthetic data
 - [ ] Kalman tracking of target position across frames
 - [ ] Evaluation on the annotated Anti-UAV410 dataset
-
-### Comparison
-- [ ] Detection performance by level of prior signal knowledge, from matched filter to blind detection
 
 ## Run
 
