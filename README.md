@@ -1,7 +1,8 @@
 # detection
 
-Detection and parameter estimation of weak targets in radar and RF signals as well as infrared image sequences.
-Core question: how much detection performance is lost the less is known about the target?
+Detection and parameter estimation of weak targets in radar and passive RF signals as well as infrared image sequences, with small drones as the application case.
+
+Core question: how much detection and estimation performance is lost the less is known about the signal, the noise and the target?
 
 ## Result
 
@@ -17,8 +18,8 @@ one decision per receive window, false-alarm probability fixed at 0.01.
 - [x] Matched filter / pulse compression
 - [ ] CFAR detection
 - [ ] Kalman tracking of the target delay
-- [ ] Direction-of-arrival estimation on a simulated array
-- [ ] Blind detection without known waveform 
+- [ ] Blind detection without known waveform
+- [ ] Validation on real drone RF recordings (TSMS-Drone)
 
 ### Infrared image sequences
 - [ ] Synthetic sequences: small moving target in Gaussian background, known ground truth
