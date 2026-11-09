@@ -4,12 +4,12 @@ one decision per receive window; checks the false-alarm rate."""
 import numpy as np
 import matplotlib.pyplot as plt
 
-from chirp import make_chirp, make_rx_window
-from matched_filter import matched_filter, detect
+from rf.chirp import make_chirp, make_rx_window
+from core.matched_filter import matched_filter, detect
 
 B, T, fs = 1e6, 100e-6, 4e6
 n_samples, tau = 1024, 150e-6
-p_fa = 1e-2            
+p_fa = 1e-2           
 n_runs = 400
 
 rng = np.random.default_rng(0)
@@ -32,10 +32,13 @@ for _ in range(10 * n_runs):
     false_alarms += detect(matched_filter(x, s), 1.0, p_fa)[0]
 print(f"P_FA = {false_alarms/(10*n_runs):.3f}   (should be at most {p_fa})")
 
-plt.plot(snr_dbs, p_d, "o-")
-plt.xlabel("SNR [dB]")
-plt.ylabel("$P_D$")
-plt.title(f"Matched filter, unknown delay, $P_{{FA}}$ = {p_fa}")
-plt.grid(True)
-plt.savefig("figures/pd_curve.png", dpi=150)
+
+fig, ax = plt.subplots()
+ax.plot(snr_dbs, p_d, "o-")
+ax.set_xlabel("SNR after matched filter [dB]")
+ax.set_ylabel("$P_D$")
+ax.set_title(f"Matched filter, unknown delay, $P_{{FA}}$ = {p_fa}")
+ax.grid(True)
+fig.savefig("figures/pd_curve.png", dpi=150)
 plt.show()
+
