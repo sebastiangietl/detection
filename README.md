@@ -22,7 +22,7 @@ one decision per receive window, false-alarm probability fixed at 0.01.
 - [ ] Validation on real drone RF recordings (TSMS-Drone)
 
 ### Infrared image sequences
-- [ ] Synthetic sequences: small moving target in Gaussian background, known ground truth
+- [x] Synthetic images: small target in structured background, known ground truth
 - [ ] Background suppression (top-hat filtering)
 - [ ] 2D matched filter for small targets, verified on synthetic data
 - [ ] Kalman tracking of target position across frames
@@ -30,8 +30,11 @@ one decision per receive window, false-alarm probability fixed at 0.01.
 
 ## Run
 
+Run from the repository root:
+
 ```
-pip install numpy matplotlib
-python chirp.py       # plots two simulated receive windows
-python hit_rate.py    # P_D curve -> figures/pd_curve.png
+pip install numpy scipy matplotlib
+python -m rf.chirp          # plots two simulated receive windows
+python -m rf.hit_rate       # P_D curve -> figures/pd_curve.png
+python -m image.image_sim   # simulated infrared image at two SNRs
 ```
