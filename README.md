@@ -22,9 +22,8 @@ one decision per receive window, false-alarm probability fixed at 0.01.
 - [ ] Validation on real drone RF recordings (TSMS-Drone)
 
 ### Infrared image sequences
-- [x] Synthetic images: small target in structured background, known ground truth
-- [ ] Background suppression (top-hat filtering)
-- [ ] 2D matched filter for small targets, verified on synthetic data
+- [x] Synthetic images: point target (Gaussian PSF) in white Gaussian noise
+- [ ] 2D matched filter for small targets
 - [ ] Kalman tracking of target position across frames
 - [ ] Evaluation on the annotated Anti-UAV410 dataset
 
