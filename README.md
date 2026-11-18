@@ -30,6 +30,6 @@ Run from the repository root:
 
 ```
 pip install numpy scipy matplotlib
-python -m rf.pd_curve
-python -m image.pd_curve
+python -m rf.hit_rate
+python -m image.hit_rate
 ```
