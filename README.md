@@ -1,15 +1,10 @@
 # detection
 
-How far away can a small drone still be detected, and how much detection range is lost
-for every piece of information the detector does not have?
+Detection and parameter estimation of weak targets in radar and passive RF signals
+as well as infrared image sequences, with small drones as the application case.
 
-<p>
-  <img src="figures/before_after_mf.png" width="49%">
-  <img src="figures/before_after_mf_image.png" width="49%">
-</p>
-
-The same matched-filter principle recovers a weak target in a radar echo (left)
-and in an infrared image (right).
+Core question: how much detection and estimation performance is lost the less is known
+about the signal, the noise and the target?
 
 | Part | Content |
 |---|---|
