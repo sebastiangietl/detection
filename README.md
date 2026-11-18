@@ -8,7 +8,7 @@ about the signal, the noise and the target?
 
 | Part | Content |
 |---|---|
-| [**Radar →**](rf/) | Linear chirp, matched filter, threshold detection with unknown delay |
+| [**RF Signals →**](rf/) | Linear chirp, matched filter, threshold detection with unknown delay |
 | [**Image →**](image/) | Point target in images, 2D matched filter, detection with unknown position |
 
 ## Structure
