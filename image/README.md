@@ -1,4 +1,4 @@
-# Infrared
+# Image
 
 Small point target (Gaussian PSF) at unknown position in an image with white Gaussian noise.
 
