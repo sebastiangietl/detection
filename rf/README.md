@@ -1,4 +1,4 @@
-# Radar
+# RF Signal
 
 Single-pulse radar: a linear chirp is sent, the echo arrives with unknown delay
 and unknown phase in complex white Gaussian noise.
