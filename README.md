@@ -1,31 +1,28 @@
 # detection
 
-Detection and parameter estimation of weak targets in radar and passive RF signals as well as infrared image sequences, with small drones as the application case.
+How far away can a small drone still be detected, and how much detection range is lost
+for every piece of information the detector does not have?
 
-Core question: how much detection and estimation performance is lost the less is known about the signal, the noise and the target?
+<p>
+  <img src="figures/before_after_mf.png" width="49%">
+  <img src="figures/before_after_mf_image.png" width="49%">
+</p>
 
-## Result
+The same matched-filter principle recovers a weak target in a radar echo (left)
+and in an infrared image (right).
 
-![P_D vs SNR](figures/pd_curve.png)
+| Part | Content |
+|---|---|
+| [**Radar →**](rf/) | Linear chirp, matched filter, threshold detection with unknown delay |
+| [**Infrared →**](image/) | Point target in images, 2D matched filter, detection with unknown position |
 
-Probability of detection vs. SNR for the matched-filter detector with unknown target delay,
-one decision per receive window, false-alarm probability fixed at 0.01.
+## Structure
 
-## Status
-
-### Radar signals
-- [x] Signal model: unit-energy linear chirp, single-pulse receive window with complex white Gaussian noise
-- [x] Matched filter / pulse compression
-- [ ] CFAR detection
-- [ ] Kalman tracking of the target delay
-- [ ] Blind detection without known waveform
-- [ ] Validation on real drone RF recordings (TSMS-Drone)
-
-### Infrared image sequences
-- [x] Synthetic images: point target (Gaussian PSF) in white Gaussian noise
-- [ ] 2D matched filter for small targets
-- [ ] Kalman tracking of target position across frames
-- [ ] Evaluation on the annotated Anti-UAV410 dataset
+```
+rf/       radar signal model, matched filter, experiments
+image/    infrared image model, 2D matched filter, experiments
+figures/  generated plots
+```
 
 ## Run
 
@@ -33,7 +30,6 @@ Run from the repository root:
 
 ```
 pip install numpy scipy matplotlib
-python -m rf.chirp          # plots two simulated receive windows
-python -m rf.hit_rate       # P_D curve -> figures/pd_curve.png
-python -m image.image_sim   # simulated infrared image at two SNRs
+python -m rf.pd_curve
+python -m image.pd_curve
 ```
