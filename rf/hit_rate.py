@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from rf.chirp import make_chirp, make_rx_window
-from core.matched_filter import matched_filter, detect
+from rf.matched_filter import matched_filter, detect, threshold
 
 B, T, fs = 1e6, 100e-6, 4e6
 n_samples, tau = 1024, 150e-6
@@ -21,7 +21,7 @@ for snr_db in snr_dbs:
     hits = 0
     for _ in range(n_runs):
         x, d0 = make_rx_window(s, tau, 10**(snr_db/10), fs, n_samples, rng)
-        detected, d_hat = detect(matched_filter(x, s), 1.0, p_fa)
+        detected, d_hat = detect(matched_filter(x, s), threshold(1.0, p_fa,n_samples-len(s)+1))
         hits += detected and abs(d_hat - d0) <= 2
     p_d.append(hits / n_runs)
     #print(f"SNR {snr_db:>2} dB   P_D = {hits/n_runs:.2f}")
@@ -29,16 +29,17 @@ for snr_db in snr_dbs:
 false_alarms = 0
 for _ in range(10 * n_runs):
     x, _ = make_rx_window(s, tau, 0, fs, n_samples, rng)
-    false_alarms += detect(matched_filter(x, s), 1.0, p_fa)[0]
+    false_alarms += detect(matched_filter(x, s), threshold(1.0,p_fa,n_samples-len(s)+1))[0]
 print(f"P_FA = {false_alarms/(10*n_runs):.3f}   (should be at most {p_fa})")
 
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(5, 3.5))
 ax.plot(snr_dbs, p_d, "o-")
 ax.set_xlabel("SNR after matched filter [dB]")
 ax.set_ylabel("$P_D$")
 ax.set_title(f"Matched filter, unknown delay, $P_{{FA}}$ = {p_fa}")
 ax.grid(True)
+fig.tight_layout()
 fig.savefig("figures/pd_curve.png", dpi=150)
 plt.show()
 
