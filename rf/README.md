@@ -30,5 +30,5 @@ Neyman–Pearson threshold. P_FA = 0.01, checked by Monte Carlo.
 
 ```
 python -m rf.matched_filter   # before / after matched filter
-python -m rf.pd_curve         # P_D vs. SNR
+python -m rf.hit_rate         # P_D vs. SNR
 ```
