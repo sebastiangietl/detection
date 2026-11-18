@@ -3,22 +3,7 @@
 import numpy as np
 
 def make_psf(shape, pos, psf_width):
-    """Gaussian point spread function at a sub-pixel position.
-
-    Parameters
-    ----------
-    shape : tuple of int
-        Image size (rows, cols)
-    pos : tuple of float
-        Target position (row, col) in pixels
-    psf_width : float
-        Standard deviation of the Gaussian in pixels
-
-    Returns
-    -------
-    p : ndarray of float, shape `shape`
-        PSF image
-    """
+    """Gaussian point spread function at a sub-pixel position"""
     rows, cols = np.indices(shape)
     r2 = (rows - pos[0])**2 + (cols - pos[1])**2
     p = np.exp(-r2 / (2 * psf_width**2))
@@ -26,29 +11,7 @@ def make_psf(shape, pos, psf_width):
 
 
 def make_image(shape, pos, snr_lin, psf_width, rng, sigma=1.0):
-    """Single image z = a * p(pos) + w
-
-    Parameters
-    ----------
-    shape : tuple of int
-        Image size (rows, cols)
-    pos : tuple of float
-        Target position (row, col) in pixels.
-    snr_lin : float
-        SNR a^2 / sigma^2 with respect to the white noise only, linear.
-
-    psf_width : float
-        Standard deviation of the PSF in pixels
-    rng : numpy.random.Generator
-        Random number generator for the noise
-    sigma : float, optional
-        Noise standard deviation per pixel
-
-    Returns
-    -------
-    z : ndarray of float, shape `shape`
-        The image.
-    """
+    """Single image z = a * p(pos) + w"""
     a = np.sqrt(snr_lin) * sigma
     w = sigma * rng.standard_normal(shape)
     return a * make_psf(shape, pos, psf_width) + w
