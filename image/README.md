@@ -14,7 +14,7 @@ The target is invisible in the raw image. After the 2D matched filter it stands 
 
 <img src="../figures/pd_curve_image.png" width="450">
 
-P_FA = 0.01 per frame. With known position, the matched-filter output |y|² at the true position is compared against the Neyman–Pearson threshold (UMP for unknown amplitude). With unknown position, the GLRT is used.
+P_FA = 0.01 per frame. With known position, the matched-filter output |y|² at the true position is compared against the Neyman–Pearson threshold. With unknown position, the GLRT is used.
 
 ## Run
 
