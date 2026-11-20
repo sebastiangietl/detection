@@ -17,15 +17,6 @@ of all 400 samples into one peak (+26 dB).
 One decision per receive window: maximum of |y|² over all 625 delays against a
 Neyman–Pearson threshold. P_FA = 0.01, checked by Monte Carlo.
 
-## Status
-
-- [x] Signal model: unit-energy linear chirp, complex white Gaussian noise
-- [x] Matched filter / pulse compression
-- [x] Threshold detection with unknown delay
-- [ ] CFAR detection (unknown noise level)
-- [ ] Range estimation error vs. SNR
-- [ ] Kalman tracking of a moving target
-
 ## Run
 
 ```
