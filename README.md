@@ -18,7 +18,14 @@ rf/       radar signal model, matched filter, experiments
 image/    infrared image model, 2D matched filter, experiments
 figures/  generated plots
 ```
-
+## Status
+- [x] Simulated images: point target with Gaussian PSF in white Gaussian noise
+- [x] 2D matched filter, threshold detection with unknown position
+- [ ] Unknown target size: template mismatch, multiple template sizes
+- [ ] Structured background and top-hat suppression
+- [ ] Adaptive threshold (2D CFAR)
+- [ ] Moving target and Kalman tracking
+- [ ] Evaluation on the Anti-UAV410 dataset
 ## Run
 
 Run from the repository root:
