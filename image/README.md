@@ -4,7 +4,7 @@
 
 $$z = a \cdot p(\theta) + w$$
 
-Point target with Gaussian PSF $p$ at unknown position $\theta$, amplitude $a$, white Gaussian noise $w \sim \mathcal{N}(0, \sigma^2)$ per pixel. SNR $= a^2/\sigma^2$. Structured background, unknown target size, unknown noise level and target motion are added step by step.
+Point target with Gaussian PSF $p$ at unknown position $\theta$, amplitude $a$, white Gaussian noise $w \sim \mathcal{N}(0, \sigma^2)$ per pixel. Structured background, unknown target size, unknown noise level and target motion are added step by step.
 
 <img src="../figures/before_after_mf_image.png" width="550">
 
