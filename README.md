@@ -4,6 +4,8 @@ Detection and parameter estimation of weak targets in radar and passive RF signa
 as well as infrared image sequences, with small drones as the application case.
 
 Core question: how much detection and estimation performance is lost the less is known about the signal, the noise and the target? And how much of it is recovered on real data when the model is estimated from the recordings?
+
+Models, results and analysis for each part are in the respective README:
 | Part | Content |
 |---|---|
 | [**RF Signal →**](rf/) | Linear chirp, matched filter, threshold detection with unknown delay |
