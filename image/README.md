@@ -16,14 +16,6 @@ red marks pixels above the detection threshold. At 10 dB the peak stays below it
 One decision per frame: maximum over all positions against a Neyman–Pearson threshold.
 P_FA = 0.01, checked by Monte Carlo.
 
-## Status
-
-- [x] Image model: Gaussian PSF, white Gaussian noise, known ground truth
-- [x] 2D matched filter, threshold detection with unknown position
-- [ ] Structured background and top-hat suppression
-- [ ] Moving target and Kalman tracking
-- [ ] Evaluation on the annotated Anti-UAV410 dataset
-
 ## Run
 
 ```
