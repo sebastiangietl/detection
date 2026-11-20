@@ -8,8 +8,7 @@ Point target with Gaussian PSF $p$ at unknown position $\theta$, amplitude $a$, 
 
 <img src="../figures/before_after_mf_image.png" width="550">
 
-The target is invisible in the raw image. After the 2D matched filter it stands out;
-red marks pixels above the detection threshold. At 10 dB the peak stays below it.
+The target is invisible in the raw image. After the 2D matched filter it stands out, red marks the pixels above the detection threshold.
 
 ## Detection
 
