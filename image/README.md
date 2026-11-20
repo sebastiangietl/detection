@@ -14,8 +14,7 @@ The target is invisible in the raw image. After the 2D matched filter it stands 
 
 <img src="../figures/pd_curve_image.png" width="450">
 
-One decision per frame: maximum over all positions against a threshold set for
-P_FA = 0.01 per frame, checked by Monte Carlo.
+P_FA = 0.01 per frame. With known position, the matched-filter output |y|² at the true position is compared against the Neyman–Pearson threshold (UMP for unknown amplitude). With unknown position, the GLRT is used.
 
 ## Run
 
