@@ -2,9 +2,9 @@
 
 ## Model
 
-$$z = a\,p(\theta) + w$$
+$$z = a*p(\theta) + w$$
 
-Point target with Gaussian PSF $p$ at unknown position $\theta$, amplitude $a$, white Gaussian noise $w \sim \mathcal{N}(0, \sigma^2)$ per pixel. SNR $= a^2/\sigma^2$.
+Point target with Gaussian PSF $p$ at unknown position $\theta$, amplitude $a$, white Gaussian noise $w \sim \mathcal{N}(0, \sigma^2)$ per pixel. 
 
 <img src="../figures/before_after_mf_image.png" width="550">
 
