@@ -1,6 +1,6 @@
 # Infrared
 
-## Current model
+## Model
 
 $$z = a \cdot p(\theta) + b + w$$
 
