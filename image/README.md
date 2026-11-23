@@ -22,7 +22,7 @@ Simulated image at SNR = 20 dB, the red circle marks the target.
 
 <img src="../figures/pd_curve_image.png" width="450">
 
-With known position, the matched-filter output |y|² at the true position is compared against the Neyman–Pearson threshold. With unknown position, the GLRT is used.
+Detection without background ($b = 0$). With known position, the matched-filter output $|y|^2$ at the true position is compared against the Neyman–Pearson threshold. With unknown position, the GLRT is used: the maximum over all positions is compared against a threshold corrected for the number of positions.
 
 ## Run
 
