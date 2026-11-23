@@ -4,7 +4,7 @@
 
 $$z = a \cdot p(\theta) + b + w$$
 
-Point target with Gaussian PSF $p$ at unknown position $\theta$, amplitude $a$, structured background $b$, white Gaussian noise $w \sim \mathcal{N}(0, \sigma^2)$ per pixel. Unknown target size, unknown noise level and target motion are added step by step.
+Point target with Gaussian PSF $p$ at unknown position $\theta$, amplitude $a$, structured background $b$, white Gaussian noise $w \sim \mathcal{N}(0, \sigma^2)$ per pixel. Unknown noise level and target motion are added step by step.
 
 The background models clouds as bright patches with sharp edges, blurred by the same PSF as the target:
 
