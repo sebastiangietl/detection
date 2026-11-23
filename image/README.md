@@ -8,7 +8,9 @@ Point target with Gaussian PSF $p$ at unknown position $\theta$, amplitude $a$, 
 
 The background models clouds as bright patches with sharp edges, blurred by the same PSF as the target:
 
-$$b = p * \big(c \cdot \mathbf{1}\{u > \tau\}\big), \qquad u = g_s * n$$
+```math
+b = p \ast \left(c \cdot \mathbf{1}_{\lbrace u > \tau \rbrace}\right), \qquad u = g_s \ast n
+```
 
 with white Gaussian noise $n$, Gaussian kernel $g_s$ (width $s$ sets the cloud size), contrast $c$ and threshold $\tau$ chosen as a quantile of $u$, so that a fraction `fill` of the image is covered.
 
