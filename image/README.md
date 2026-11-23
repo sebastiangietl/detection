@@ -17,7 +17,7 @@ with white Gaussian noise $n$, Gaussian kernel $g_s$ (width $s$ sets the cloud s
 <img src="../figures/simulated_image.png" width="350">
 
 Simulated image at SNR = 20 dB, the red circle marks the target.
-
+## Detection
 <img src="../figures/pd_curve_image.png" width="450">
 
 Detection without background ($b = 0$). With known position, the matched-filter output |y|² at the true position is compared against the Neyman–Pearson threshold. With unknown position, the GLRT is used.
