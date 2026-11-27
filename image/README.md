@@ -25,11 +25,11 @@ with spectral exponent $\beta$ (larger $\beta$: smoother clouds), contrast $c$, 
 Simulated image at SNR = 30 dB, the red circle marks the target.
 ## Detection
 
-## Detection without background
+### Detection without background
 <img src="../figures/pd_curve_image.png" width="450">
 
 Detection without background ($b = 0$). With known position, the matched-filter output |y|² at the true position is compared against the Neyman–Pearson threshold. With unknown position, the GLRT is used.
-## Detection with background
+### Detection with background
 
 <img src="../figures/pd_curve_clouds.png" width="650">
 
