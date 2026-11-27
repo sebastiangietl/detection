@@ -49,6 +49,7 @@ The spectrum $\hat S$ of $b + w$ is estimated from the image itself (periodogram
 ## Run
 
 ```
-python -m ir.matched_filter   # before / after matched filter
-python -m ir.hit_rate         # P_D vs. SNR
+python -m image.image_sim        # simulated image with clouds
+python -m image.matched_filter   # before / after matched filter
+python -m image.hit_rate         # P_D vs. SNR, without and with clouds
 ```
