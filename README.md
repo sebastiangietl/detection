@@ -22,8 +22,8 @@ figures/  generated plots
 ### Infrared
 - [x] Simulated images: point target with Gaussian PSF in white Gaussian noise
 - [x] 2D matched filter, threshold detection with unknown position
-- [ ] Structured background and nonlinear background suppression (e.g. top-hat, max-median)
-- [ ] Adaptive threshold (2D CFAR)
+- [x] Structured background (simulated clouds) and background suppression by prewhitening
+- [x] Adaptive threshold (2D CA-CFAR)
 - [ ] Moving target and Kalman tracking
 - [ ] Evaluation on the Anti-UAV410 dataset
 ### RF signals
