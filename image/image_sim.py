@@ -11,12 +11,17 @@ def make_psf(shape, pos, psf_width):
     p = np.exp(-r2 / (2 * psf_width**2))
     return p / np.linalg.norm(p)
 
-
-def make_cloud_patches(shape, corr_len, contrast, fill, psf_width, rng):
-    """Cloud background: bright patches with sharp edges, blurred by the PSF"""
-    field = gaussian_filter(rng.standard_normal(shape), corr_len)
-    mask = field > np.quantile(field, 1 - fill)
-    return gaussian_filter(contrast * mask.astype(float), psf_width)
+def make_textured_clouds(shape, beta, contrast, cover, softness, psf_width, rng):
+    """Cloud background: power-law textured field with soft cloud boundaries blurred by the PSF"""
+    fy, fx = np.meshgrid(np.fft.fftfreq(shape[0]), np.fft.fftfreq(shape[1]), indexing="ij")
+    f = np.hypot(fx, fy)
+    f[0, 0] = np.inf
+    u = np.real(np.fft.ifft2(np.fft.fft2(rng.standard_normal(shape)) * f**(-beta / 2)))
+    u = (u - u.mean()) / u.std()
+    tau = np.quantile(u, 1 - cover)
+    s = 1 / (1 + np.exp(-(u - tau) / softness))
+    b = contrast * s * (1 + 0.5 * (u - tau))
+    return gaussian_filter(b, psf_width)
 
 
 def make_image(shape, pos, snr_lin, psf_width, rng, sigma=1.0, b=0.0):
@@ -29,11 +34,11 @@ def make_image(shape, pos, snr_lin, psf_width, rng, sigma=1.0, b=0.0):
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
-    shape, pos, snr_db, seed = (128, 128), (64.0, 64.0), 20, 4
+    shape, pos, snr_db, seed = (128, 128), (64.0, 64.0), 30, 4
 
     rng = np.random.default_rng(seed)
-    b = make_cloud_patches(shape, corr_len=12.0, contrast=5.0, fill=0.5,
-                           psf_width=2.5, rng=rng)
+    b = make_textured_clouds((2 * shape[0], 2 * shape[1]), beta=3.7, contrast=50.0, cover=0.5,
+                             softness=0.15, psf_width=2.5, rng=rng)[:shape[0], :shape[1]]
     z = make_image(shape, pos, 10**(snr_db / 10), psf_width=2.5, rng=rng, b=b)
 
     fig, ax = plt.subplots(figsize=(4, 4))
