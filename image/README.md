@@ -24,6 +24,7 @@ with spectral exponent $\beta$ (larger $\beta$: smoother clouds), contrast $c$, 
 
 Simulated image at SNR = 30 dB, the red circle marks the target.
 ## Detection
+
 ## Detection without background
 <img src="../figures/pd_curve_image.png" width="450">
 
@@ -42,9 +43,9 @@ y = \mathcal{F}^{-1}\left[\frac{Z \cdot P^\ast}{\hat S}\right] = p^\top \hat C^{
 
 The spectrum $\hat S$ of $b + w$ is estimated from the image itself (periodogram, smoothed over neighboring frequencies), so no prior knowledge of the clouds is used.
 
-**CA-CFAR.** After whitening the remaining noise level still varies across the image (higher at cloud edges than in clear sky). Mean and standard deviation are therefore estimated locally on a square ring around each pixel (guard 3 px, outer half width 17 px), and $t = (y - \hat m)/\hat s$ is compared to the threshold. Because $\hat m$ and $\hat s$ are estimates, the threshold is taken from a Student-t distribution with the effective number of independent ring samples, computed from the correlation of $y$. For unknown position the threshold is Bonferroni-corrected over all positions.
+**CA-CFAR.** After whitening the remaining noise level still varies across the image (higher at cloud edges than in clear sky). Mean and standard deviation are therefore estimated locally on a square ring around each pixel (guard 3 px, outer half width 17 px), and $t = (y - \hat m)/\hat s$ is compared to the threshold. Because $\hat m$ and $\hat s$ are estimates, the threshold is taken from a Student-t distribution with the effective number of independent ring samples, computed from the correlation of $y$. For unknown position, the false-alarm probability per pixel is set to $P_{FA}/K$, with $K$ the number of positions, so that the probability of a false alarm anywhere in the image stays at most $P_{FA}$.
 
-**Result.** The clouds cost about 18 dB at $P_D = 0.5$ (known position: 8 dB → 26 dB, unknown position: 14 dB → 33 dB). This is close to the theoretical loss of the optimal filter with the true clutter spectrum (about 19 dB for this cloud model), so estimating $\hat S$ from a single image costs only about 1 dB. The false-alarm rate is kept for known position (0.009), but exceeds the target for unknown position (0.026): the residuals at cloud edges have heavier tails than the Gaussian model assumes.
+**Result.** The clouds cost about 18 dB at $P_D = 0.5$ (known position: 8 dB → 26 dB, unknown position: 14 dB → 33 dB). This is close to the theoretical loss of the optimal filter with the true clutter spectrum (about 19 dB for this cloud model), so estimating $\hat S$ from a single image costs only about 1 dB. The false-alarm rate is kept for known position (0.009), but exceeds the target for unknown position (0.026).
 
 ## Run
 
